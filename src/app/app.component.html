@@ -1,8 +1,31 @@
-
-
-list
-
-
-<ul >
-	<li *ngFor="let item of datalist">{{item.body}}</li>
-</ul>
+<div class="container">
+	<div class="row mt-2">
+		<div class="col">
+			<div class="card">
+				<div class="card-header">
+					Commit list
+				</div>
+				<div class="card-body p-0">
+					<div class="table-responsive">
+						<table class="table table-bordered mb-0 table-sm">
+							<thead>
+								<tr>
+								  <th scope="col">Date</th>
+								  <th scope="col">Commit by</th>
+								  <th scope="col">Message</th>
+								</tr>
+							  </thead>
+							  <tbody>
+								<tr *ngFor="let item of datalist">
+								  <td>{{item.commit.committer.date}}</td>
+								  <td>{{item.commit.committer.name}}</td>
+								  <td>{{item.commit.message}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

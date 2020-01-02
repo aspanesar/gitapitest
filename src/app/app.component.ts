@@ -9,7 +9,7 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class AppComponent {
   title = 'gitapitest';
-  apiUrl = "https://api.github.com/repos/aspanesar/gitapitest/comments"
+  apiUrl = "https://api.github.com/repos/aspanesar/gitapitest/commits"
   datalist = [];
   constructor( private http: HttpClient) {
   
@@ -29,8 +29,7 @@ export class AppComponent {
   commitlist(){
     return this.http.get<any>(this.apiUrl, this.httpOptionsfun())
       .pipe(map(response => {
-        console.log(response)
 		this.datalist = response
-      }));
+      })).subscribe();
   }
 }
